@@ -19,8 +19,9 @@ class BaseModel:
         """
         time_format = "%Y-%m-%dT%H:%M:%S.%f"
         self.id = str(uuid4())
-        self.created_at = datetime.now()
-        self.updated_at = datetime.now()
+        date_creation = datetime.now()
+        self.created_at = date_creation 
+        self.updated_at = date_creation
         if len(kwargs) != 0:
             for i, j in kwargs.items():
                 if i == "created_at" or i == "updated_at":
