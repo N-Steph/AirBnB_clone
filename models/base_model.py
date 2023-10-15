@@ -2,6 +2,7 @@
 """Defines the BaseModel class which defines all common attributes/methods
 """
 
+
 import models
 from datetime import datetime
 from uuid import uuid4

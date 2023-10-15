@@ -1,6 +1,7 @@
 #!/usr/bin/python3
 """Defines the Place class which inherits from BaseModel super class."""
 
+
 from models.base_model import BaseModel
 
 
