@@ -43,13 +43,10 @@ class HBNBCommand(cmd.Cmd):
     """
 
     prompt = "(hbnb) "
-    __classes = {"BaseModel",
-            "User",
-            "Amenity",
-            "Place",
-            "City",
-            "State",
-            "Review"}
+    __classes = {"BaseModel", "User",
+                 "Amenity", "Place",
+                 "City", "State",
+                 "Review"}
 
     def do_quit(self, arg):
         """Quit command to exit the program"""
@@ -74,7 +71,8 @@ class HBNBCommand(cmd.Cmd):
             storage.save()
 
     def do_show(self, arg):
-        """Prints the string representation of an instance based on the class name and id.
+        """Prints the string representation of an instance based on the
+        class name and id.
         Usage: show <class name> <id>
         """
         new_arg = parse(arg)
@@ -89,6 +87,11 @@ class HBNBCommand(cmd.Cmd):
             print("** no instance found **")
         else:
             print(obj_dict["{}.{}".format(new_arg[0], new_arg[1])])
+
+    def help_show(self, line):
+        """Display help message for the show command"""
+        print("Prints the string representation of an instance")
+        print("base on class name and id")
 
     def do_destroy(self, arg):
         """Deletes an instance based on the class name and id.
@@ -177,4 +180,3 @@ class HBNBCommand(cmd.Cmd):
 
 if __name__ == "__main__":
     HBNBCommand().cmdloop()
-
