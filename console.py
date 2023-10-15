@@ -8,6 +8,7 @@ import re
 from models import storage
 from shlex import split
 from models.base_model import BaseModel
+from models.amenity import Amenity
 
 
 def parse(arg):
@@ -37,7 +38,7 @@ class HBNBCommand(cmd.Cmd):
     """
 
     prompt = "(hbnb) "
-    __classes = {"BaseModel"}
+    __classes = {"BaseModel", "Amenity"}
 
     def do_quit(self, arg):
         """Quit command to exit the program"""
