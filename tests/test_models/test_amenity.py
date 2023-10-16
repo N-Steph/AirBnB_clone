@@ -33,9 +33,9 @@ class TestAmenityModel(unittest.TestCase):
     def test_basic_attribute_set(self):
         """test method for basic attribute assignment
         """
-        self.temp_b.name = "bennett"
+        self.temp_b.name = "betty"
         self.temp_b.xyz = 400
-        self.assertEqual(self.temp_b.name, "bennett")
+        self.assertEqual(self.temp_b.name, "betty")
         self.assertEqual(self.temp_b.xyz, 400)
 
     def test_string_return(self):
