@@ -2,13 +2,15 @@
 """Defines the BaseModel class which defines all common attributes/methods
 """
 
+
 import models
 from datetime import datetime
 from uuid import uuid4
 
 
 class BaseModel:
-    """Represents HBnB BaseModel class which is a parent class for all other classes"""
+    """Represents HBnB BaseModel class which is a parent class
+    for all other classes"""
 
     def __init__(self, *args, **kwargs):
         """Initialize a new BaseModel constructor
@@ -20,7 +22,7 @@ class BaseModel:
         time_format = "%Y-%m-%dT%H:%M:%S.%f"
         self.id = str(uuid4())
         date_creation = datetime.now()
-        self.created_at = date_creation 
+        self.created_at = date_creation
         self.updated_at = date_creation
         if len(kwargs) != 0:
             for i, j in kwargs.items():

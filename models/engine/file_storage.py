@@ -1,6 +1,6 @@
 #!/usr/bin/python3
 """Defines module for FileStorage class.
-For serializing and deserializing object to FileStorage. 
+For serializing and deserializing object to FileStorage.
 """
 
 import json
@@ -43,8 +43,10 @@ class FileStorage:
     def save(self):
         """Serializes __objects to the JSON file (path: __file_path)"""
         obj_dict = FileStorage.__objects
-        new_obj_dict = {obj: obj_dict[obj].to_dict() for obj in obj_dict.keys()}
-        with open(FileStorage.__file_path, "w") as f:
+        new_obj_dict = {}
+        for key in obj_dict.keys():
+            new_obj_dict[key] = obj_dict[key].to_dict()
+        with open(FileStorage.__file_path, "w", encoding="utf-8") as f:
             json.dump(new_obj_dict, f)
 
     def reload(self):
