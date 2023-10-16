@@ -7,7 +7,7 @@ web application clone. Basically the console will take some basic commands and e
 
 ### How to start the console
 To start the console application use the command
-`./console.py`
+ > ./console.py
 
 ### How to use the console
 The console works with commands.
@@ -18,7 +18,7 @@ The following commands are currently handled by it.
 In order to print all the data stored in the storage engine
  > all
 or 
- > all 'class name'
+ > all 'class name' 
 to print objects of a particular class
 
 In order to create and object and store it in the storage engine
