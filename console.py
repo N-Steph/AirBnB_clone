@@ -48,6 +48,32 @@ class HBNBCommand(cmd.Cmd):
                  "City", "State",
                  "Review"}
 
+
+    def emptyline(self):
+        """Do nothing upon receiving an empty line."""
+        pass
+
+    def default(self, arg):
+        """The default behavior for cmd module when input is not valid."""
+        arg_dict = {
+            "all": self.do_all,
+            "show": self.do_show,
+            "destroy": self.do_destroy,
+            "count": self.do_count,
+            "update": self.do_update,
+        }
+        match = re.search(r"\.", arg)
+        if match is not None:
+            new_arg = [arg[: match.span()[0]], arg[match.span()[1] :]]
+            match = re.search(r"\((.*?)\)", new_arg[1])
+            if match is not None:
+                command = [new_arg[1][: match.span()[0]], match.group()[1:-1]]
+                if command[0] in arg_dict.keys():
+                    call = "{} {}".format(new_arg[0], command[1])
+                    return arg_dict[command[0]](call)
+        print("*** Unknown syntax: {}".format(arg))
+        return False
+
     def do_quit(self, arg):
         """Quit command to exit the program"""
         return True
@@ -148,7 +174,16 @@ class HBNBCommand(cmd.Cmd):
                     new_obj.append(obj.__str__())
             print(new_obj)
 
-    """do_count method"""
+    def do_count(self, arg):
+        """Retrieves the number of instances of a class.
+        Usage: <class name>.count()
+        """
+        new_arg = parse(arg)
+        count = 0
+        for obj in storage.all().values():
+            if new_arg[0] == obj.__class__.__name__:
+                count += 1
+        print(count)
 
     def help_update(self):
         """Display help message for the destroy command"""
