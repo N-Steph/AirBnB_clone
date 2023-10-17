@@ -24,6 +24,12 @@ class FileStorage:
 
     __file_path = "file.json"
     __objects = {}
+    constructors = {
+            'BaseModel': BaseModel, 'User': User,
+            'State': State, 'City': City,
+            'Amenity': Amenity, 'Place': Place,
+            'Review': Review
+            }
 
     def all(self):
         """Returns the dictionary __objects."""
@@ -48,11 +54,19 @@ class FileStorage:
         Otherwise do nothing, no exception should be raised.
         """
         try:
-            with open(FileStorage.__file_path, "r", encoding="utf-8") as f:
-                new_obj_dict = json.load(f)
-                for i in new_obj_dict.values():
-                    class_name = i["__class__"]
-                    del i["__class__"]
-                    self.new(eval(class_name)(**i))
-        except FileNotFoundError:
+            json_file = open(self.__file_path, "r", encoding="utf-8")
+        except Exception:
             return
+        try:
+            self.__objects = json.load(json_file)
+        except Exception:
+            json_file.close()
+        for obj_id in self.__objects.keys():
+            curr_obj_class = obj_id.split(".")
+            obj = self.__objects[obj_id]
+            for key in self.constructors:
+                if key == curr_obj_class[0]:
+                    obj = self.constructors[key](**obj)
+                    break
+            self.__objects[obj_id] = obj
+        json_file.close()
