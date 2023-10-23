@@ -1,0 +1,122 @@
+/* Filter style */
+
+/* filter section style */
+
+.filters {
+    background-color: white;
+    height: 70px;
+    width: 100%;
+    border: 1px solid #DDDDDD;
+    border-radius: 4px;
+}
+
+/* Button Search style */
+.filters button {
+    font-size: 18px;
+    background-color: #FF5A5F;
+    color: white;
+    height: 48px;
+    width: 20%;
+    border: none;
+    border-radius: 4px;
+    float: right;
+    margin: 11px 30px;
+} 
+
+/* search button hover style */
+.filters button:hover {
+    opacity: 90%;
+} 
+
+/* Location & Amenities style */
+.locations, 
+.amenities {
+    height: 100%;
+    width: 25%;
+    display: inline-block;
+    position: relative;
+} 
+
+/* location border style */
+.locations {
+    border-right: 1px solid #DDDDDD;
+} 
+
+/* Box sizing for all headers */
+.filters h2,
+.filters h3,
+.filters h4 {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+} 
+
+/* Header h3 style inside Filters */
+.filters h3 {
+    font-weight: 600;
+    padding: 0 0 0 30px;
+} 
+
+/* Header h4 style inside Filters */
+.filters h4 {
+    font-weight: 400;
+    font-size: 14px;
+    padding: 0 0 0 30px;
+    margin-top: -12px;
+} 
+
+.filters h2 {
+    font-size: 16px;
+    margin: 10px auto 5px 30px;
+} 
+
+/* Locations and amenities hover opacity */
+.filters .locations:hover,
+.filters .amenities:hover {
+ /* background-color: #fafafa; */
+} 
+
+/* Locations and amenities popover menu */
+.filters .popover {
+  background-color: #fafafa;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  display: none;
+  position: absolute;
+  width: 100%;
+  margin-top: -3px;
+} 
+
+/* Locations and amenities popover hover */
+.filters .locations:hover .popover,
+.filters .amenities:hover .popover {
+  display: block;
+} 
+
+/* Locations list style */
+.filters .locations ul {
+    padding: 2px 0 6px 0;
+    list-style-type: none; 
+} 
+
+/* Locations list element margin */
+.filters .locations li {
+    margin: 0 auto 4px 3em;
+}
+
+/* Amenities list element margin */
+.filters .amenities li {
+    margin: 12px 0 12px 0;
+    list-style-type: none;
+}
+
+/* re-placing Amenities content 5px to the left */
+.amenities {
+    margin-left: -5px;
+}
+
+/* re-placing Amenities lists 10px to the left side */
+.amenities .popover li {
+    margin-left: -10px;   
+}
+
